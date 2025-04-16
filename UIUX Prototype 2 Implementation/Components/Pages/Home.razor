@@ -1,7 +1,11 @@
-﻿@page "/"
+﻿@page "/home"
+@inject NavigationManager NavigationManager
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/meetingbookingsupervisor")' Class="ml-auto">Book a Meeting</MudButton>
+<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/interactionviewerstaff")' Class="ml-auto">View Student Status Report</MudButton>
 
-Welcome to your new app.
+@code {
+
+}

@@ -1,5 +1,8 @@
-﻿<h3>TutorHome</h3>
+﻿@page "/tutorhome"
+@inject NavigationManager NavigationManager
 
+<PageTitle>Home</PageTitle>
+<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/interactionviewerstaff")' Class="ml-auto">View an Interaction</MudButton>
 @code {
 
 }

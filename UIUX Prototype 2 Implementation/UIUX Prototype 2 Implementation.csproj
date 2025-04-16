@@ -4,8 +4,12 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>UIUX Prototype 2 Implementation</RootNamespace>
-    <AssemblyName>$(AssemblyName.Replace(' ', '_'))</AssemblyName>
+    <RootNamespace>UIUX_Prototype_2_Implementation</RootNamespace>
+    <AssemblyName>`$(AssemblyName.Replace(' ', '_'))</AssemblyName>
   </PropertyGroup>
 
+
+  <ItemGroup>
+    <PackageReference Include="MudBlazor" Version="8.*" />
+  </ItemGroup>
 </Project>

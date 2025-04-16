@@ -1,4 +1,9 @@
-﻿<h3>StudentHome</h3>
+﻿@page "/studenthome"
+@inject NavigationManager NavigationManager
+<PageTitle>Home</PageTitle>
+
+<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/meetingbookingstudent")' Class="ml-auto">Book a Meeting</MudButton>
+<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/reportcreationscreen")' Class="ml-auto">Create a Report</MudButton>
 
 @code {
 
