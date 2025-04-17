@@ -1,6 +1,104 @@
 ﻿@page "/reportcreationscreen"
-<h3>ReportCreation</h3>
+@inject NavigationManager NavigationManager
+@using System.ComponentModel.DataAnnotations
 
+<EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <MudGrid>
+        <MudItem xs="12" sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <h2>Please input your full name</h2>
+                    <MudTextField Label="Full name"
+                    @bind-Value="model.Username" For="@(() => model.Username)" />
+                    <h2>Please input your 6 didgit ID</h2>
+                    <MudTextField Label="Student ID" Class="mt-3"
+                    @bind-Value="model.StudentID" For="@(() => model.StudentID)" />
+                    <h2>Question1: How are you feeling about your course?</h2>
+                    <MudTextField Label="Question1" HelperText="Answer here" Class="mt-3"
+                    @bind-Value="model.Question1" For="@(() => model.Question1)"/>
+
+                    <h2>Question2: Do you think you will reach your assignment deadlines?</h2>
+                    <MudTextField Label="Question2" HelperText="Answer here" Class="mt-3"
+                    @bind-Value="model.Question2" For="@(() => model.Question2)" />
+
+                    <h2>Question3: Rate your recent mental state</h2>
+                    <MudTextField Label="Question3" HelperText="Answer here" Class="mt-3"
+                    @bind-Value="model.Question3" For="@(() => model.Question3)" />
+
+                    <h2>Do you have any additional comments? These can be anything from additional context to your answers, problems to information you would like to be known.</h2>
+                    <MudTextField Label="AdditionalComments" HelperText="Answer here" Class="mt-3"
+                    @bind-Value="model.AdditionalComments" For="@(() => model.AdditionalComments)" />
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Create</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="5">
+            <MudPaper Class="pa-4 mud-height-full">
+                <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
+                @if (success)
+                {
+                    string[] ReportLines = { "Progress Report", $"Student:{model.Username}", $"Student ID:{model.StudentID}", $"Question1:How are you feeling about your course?:Answer:{model.Question1}", $"Question 2:Do you think you will reach your assignment deadlines? (1-5):Answer:{model.Question2}", $"Question 3:\nRate your recent mental state (1-5):Answer:{model.Question3}", $"Additional Comments:{model.AdditionalComments}" };
+                    @*                     string FilePath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + $"//SavedInteractions/{model.Username} - ProgressReport.txt"; *@
+                    string FilePath = $"D:/C# Projects./IUX-Prototype-2-Implementation/UIUX Prototype 2 Implementation/SavedInteractions/{model.Username} - ProgressReport.txt";
+                    string Fullpath = Path.GetFullPath(FilePath);
+                    using (StreamWriter sw = new StreamWriter(Fullpath))
+                    {
+                        foreach (string line in ReportLines)
+                        {
+                            sw.WriteLine(line);
+                        }
+                    }
+                    <MudText Color="Color.Success">Success</MudText>
+                    NavigationManager.NavigateTo("/studenthome");
+                }
+                else
+                {
+                    <MudText Color="@Color.Error">
+                        <ValidationSummary />
+                    </MudText>
+                }
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</EditForm>
 @code {
+    RegisterAccountForm model = new RegisterAccountForm();
+    bool success;
 
+    public class RegisterAccountForm
+    {
+        [Required]
+        [StringLength(40, ErrorMessage = "Name length can't be more than 40.")]
+        public string Username { get; set; }
+
+        [Required]
+        [StringLength(6, ErrorMessage = "length can't be more than 6")]
+        public string StudentID { get; set; }
+
+        [Required]
+        [StringLength(1000, ErrorMessage = "Answer must be within 1000 characters", MinimumLength = 1)]
+        public string Question1 { get; set; }
+
+        [Required]
+        [StringLength(1000, ErrorMessage = "Answer must be within 1000 characters", MinimumLength = 1)]
+        public string Question2 { get; set; }
+
+        [Required]
+        [StringLength(1000, ErrorMessage = "Answer must be within 1000 characters", MinimumLength = 1)]
+        public string Question3 { get; set; }
+
+        [Required]
+        [StringLength(3000, ErrorMessage = "Answer must be within 3000 characters", MinimumLength = 1)]
+        public string AdditionalComments { get; set; }
+
+    }
+
+    private void OnValidSubmit(EditContext context)
+    {
+        success = true;
+        StateHasChanged();
+    }
 }
