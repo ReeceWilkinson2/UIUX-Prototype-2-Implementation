@@ -1,6 +1,40 @@
 ﻿@page "/meetingbookingsupervisor"
-<h3>MeetingBookingSupervisor</h3>
+<h3>Meeting Booking</h3>
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+@inject NavigationManager NavigationManager
 
+<MudForm class="my-3">
+    <MudSelect T="int"
+               Label="Please Select a student"
+               AnchorOrigin="Origin.BottomCenter"
+               Variant="Variant.Outlined"
+               Margin="Margin.Dense"
+               @bind-Value="newLink.Student" For="@(() => newLink.Student)">
+        <MudSelectItem Value="0">No Student Selected</MudSelectItem>
+        <MudSelectItem Value="1">Student 1</MudSelectItem>
+        <MudSelectItem Value="2">Student 2</MudSelectItem>
+        <MudSelectItem Value="3">Student 3</MudSelectItem>
+        <MudSelectItem Value="4">Student 4</MudSelectItem>
+        <MudSelectItem Value="5">Student 5</MudSelectItem>
+        <MudSelectItem Value="6">Student 6</MudSelectItem>
+    </MudSelect>
+    <h2>Select a date</h2>
+    <MudDatePicker Label="MM/dd/yyyy" Editable="true" @bind-Date="_date" Mask="@(new DateMask("MM/dd/yyyy"))" DateFormat="MM/dd/yyyy" Placeholder="en-UK Date" Variant="Variant.Filled" />
+    <h2>Select a time</h2>
+    <MudTimePicker Label="12 hours custom format" AmPm="true" TimeFormat="h:mm tt" @bind-Time="_time" />
+</MudForm>
+<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/home")' Class="ml-auto">Create</MudButton>
 @code {
+    StudentMeetingForm newLink = new StudentMeetingForm();
+    // private MudForm form;
 
+    public class StudentMeetingForm
+    {
+        [RegularExpression("^[1-6]$", ErrorMessage = "A Student is Required")]
+        [Required]
+        public int Student { get; set; }
+    }
+    private DateTime? _date = DateTime.Today;
+    private TimeSpan? _time = new TimeSpan(00, 45, 00);
 }

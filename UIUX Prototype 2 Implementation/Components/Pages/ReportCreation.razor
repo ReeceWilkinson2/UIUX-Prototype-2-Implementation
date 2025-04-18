@@ -11,9 +11,11 @@
                     <h2>Please input your full name</h2>
                     <MudTextField Label="Full name"
                     @bind-Value="model.Username" For="@(() => model.Username)" />
+
                     <h2>Please input your 6 didgit ID</h2>
                     <MudTextField Label="Student ID" Class="mt-3"
                     @bind-Value="model.StudentID" For="@(() => model.StudentID)" />
+
                     <h2>Question1: How are you feeling about your course?</h2>
                     <MudTextField Label="Question1" HelperText="Answer here" Class="mt-3"
                     @bind-Value="model.Question1" For="@(() => model.Question1)"/>
@@ -51,7 +53,6 @@
                             sw.WriteLine(line);
                         }
                     }
-                    <MudText Color="Color.Success">Success</MudText>
                     NavigationManager.NavigateTo("/studenthome");
                 }
                 else

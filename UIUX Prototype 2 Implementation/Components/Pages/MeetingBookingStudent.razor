@@ -1,6 +1,64 @@
 ﻿@page "/meetingbookingstudent"
-<h3>MeetingBookingStudent</h3>
+<h3>Meeting Booking</h3>
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+@inject NavigationManager NavigationManager
+
+<MudForm class="my-3">
+    <MudSelect T="int"
+               Label="Please Select your supervisor"
+               AnchorOrigin="Origin.BottomCenter"
+               Variant="Variant.Outlined"
+               Margin="Margin.Dense"
+               @bind-Value="newLink.Supervisor" For="@(() => newLink.Supervisor)">
+        <MudSelectItem Value="0">No Supervisor Selected</MudSelectItem>
+        <MudSelectItem Value="1">Supervisor 1</MudSelectItem>
+        <MudSelectItem Value="2">Supervisor 2</MudSelectItem>
+        <MudSelectItem Value="3">Supervisor 3</MudSelectItem>
+        <MudSelectItem Value="4">Supervisor 4</MudSelectItem>
+        <MudSelectItem Value="5">Supervisor 5</MudSelectItem>
+        <MudSelectItem Value="6">Supervisor 6</MudSelectItem>
+    </MudSelect>
+    <h2>Select a date</h2>
+    <MudDatePicker Label="MM/dd/yyyy" Editable="true" @bind-Date="_date" Mask="@(new DateMask("MM/dd/yyyy"))" DateFormat="MM/dd/yyyy" Placeholder="en-UK Date" Variant="Variant.Filled" />
+    <h2>Select a time</h2>
+    <MudTimePicker Label="12 hours custom format" AmPm="true" TimeFormat="h:mm tt" @bind-Time="_time" />
+@*  <MudItem xs="12" sm="5">
+            <MudPaper Class="pa-4 mud-height-full">
+                <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
+                @if (success)
+                {
+                    NavigationManager.NavigateTo("/studenthome");
+                }
+                else
+                {
+                    <MudText Color="@Color.Error">
+                        <ValidationSummary />
+                    </MudText>
+                }
+            </MudPaper>
+ </MudItem> *@
+</MudForm>
+<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/studenthome")' Class="ml-auto">Create</MudButton>
+
 
 @code {
+    StudentMeetingForm newLink = new StudentMeetingForm();
+    // private MudForm form;
+    bool success;
 
+    public class StudentMeetingForm
+    {
+        [RegularExpression("^[1-6]$", ErrorMessage = "A Supervisor is Required")]
+        [Required]
+        public int Supervisor { get; set; }
+    }
+    private DateTime? _date = DateTime.Today;
+    private TimeSpan? _time = new TimeSpan(00, 45, 00);
+    
+    private void OnValidSubmit(EditContext context)
+    {
+        success = true;
+        StateHasChanged();
+    }
 }
