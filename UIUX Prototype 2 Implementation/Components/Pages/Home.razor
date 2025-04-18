@@ -2,9 +2,13 @@
 @inject NavigationManager NavigationManager
 
 <PageTitle>Home</PageTitle>
-
+<div style="height:10vh">
 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/meetingbookingsupervisor")' Class="ml-auto">Book a Meeting</MudButton>
 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/interactionviewerstaff")' Class="ml-auto">View Student Status Report</MudButton>
+</div>
+
+<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/")' Class="ml-auto mud-theme-primary py-4 px-6 mx-4 rounded-pill">Log Off</MudButton>
+
 
 @code {
 

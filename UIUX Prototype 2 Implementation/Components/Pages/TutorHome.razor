@@ -1,8 +1,11 @@
 ﻿@page "/tutorhome"
 @inject NavigationManager NavigationManager
-
+<div style="height:10vh">
 <PageTitle>Home</PageTitle>
 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/interactionviewerstaff")' Class="ml-auto">View an Interaction</MudButton>
+</div>
+<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/")' Class="ml-auto mud-theme-primary py-4 px-6 mx-4 rounded-pill">Log Off</MudButton>
+
 @code {
 
 }
