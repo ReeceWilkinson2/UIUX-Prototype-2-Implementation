@@ -1,0 +1,42 @@
+﻿@page "/meetingviewer"
+@inject NavigationManager NavigationManager
+<div style="height:5vh">
+<h1>Meeting Viewer</h1>
+</div>
+
+<div style="height:5vh">
+    <MudPaper Width="100%">
+        <MudContainer MaxWidth="MaxWidth.Small">
+            <MudPaper Height="100%" Width="100%" Square="true" Class="mud-theme-primary">
+                <h4>Supervisor Present:</h4>
+                <p>Supervisor 1</p>
+                <h4>Supervisor ID:</h4>
+                <p>895698</p>
+                <h4>Student Present:</h4>
+                <p>Student 5</p>
+                <h4>Student ID:</h4>
+                <p>785624</p>
+                <h4>Date:</h4>
+                <p>02/12/24</p>
+                <h4>Time Slot:</h4>
+                <p>16:00 - 16:30</p>
+            </MudPaper>
+        </MudContainer>
+        <div class="center">
+        <MudButton ButtonType="ButtonType.Submit"  Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/interactionselector")' Class="ml-auto mud-theme-primary py-4 px-6 mx-4 rounded-pill">Select a different Meeting</MudButton>
+        </div>
+    </MudPaper>
+</div>
+
+<style>
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 5px;
+        text-align: center;
+    }
+</style>
+
+@code {
+
+}

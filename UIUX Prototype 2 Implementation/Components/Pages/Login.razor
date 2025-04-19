@@ -39,7 +39,7 @@
         <MudItem xs="12" sm="5">
             <MudPaper Class="pa-4 mud-height-full">
                 <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
-                @if (success && model.Username == "staff")
+                @if (success && model.Username == "supervisor")
                 {
                     NavigationManager.NavigateTo("/home");
 
@@ -71,7 +71,7 @@
     public class RegisterAccountForm
     {
         [Required]
-        [StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
+        [StringLength(30, ErrorMessage = "Name length can't be more than 30.")]
         public string Username { get; set; }
 
         [Required]

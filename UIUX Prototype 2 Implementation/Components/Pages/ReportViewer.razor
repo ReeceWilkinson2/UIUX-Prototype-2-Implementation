@@ -1,0 +1,43 @@
+﻿@page "/reportviewer"
+@inject NavigationManager NavigationManager
+<div style="height:5vh">
+<h1>Report Viewer</h1>
+</div>
+
+<div style="height:5vh">
+<MudPaper Width="100%">
+    <MudContainer MaxWidth="MaxWidth.Small">
+        <MudPaper Height="100%" Width="100%" Square="true" Class="mud-theme-primary">
+            <h4>Name:</h4>
+            <p>Big Tester Man</p>
+            <h4>Student ID:</h4>
+            <p>689000</p>
+            <h4>Question1: How are you feeling about your course?</h4>
+            <p>Bad :(</p>
+            <h4>Question2: Do you think you will reach your assignment deadlines?</h4>
+            <p>No :(</p>
+            <h4>Question3: Rate your recent mental state</h4>
+            <p>Self Explanitory :(</p>
+            <h4>Do you have any additional comments? These can be anything from additional context to your answers, problems to information you would like to be known.</h4>
+            <p>No :(</p>
+        </MudPaper>
+    </MudContainer>
+    <div class="center">
+    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/interactionselector")' Class="ml-auto mud-theme-primary py-4 px-6 mx-4 rounded-pill">Select a different Meeting</MudButton>
+    </div>
+</MudPaper>
+</div>
+
+<style>
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 5px;
+        text-align: center;
+    }
+</style>
+
+
+@code {
+
+}
