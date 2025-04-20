@@ -1,0 +1,46 @@
+﻿@page "/reportviewersupervisor"
+@inject NavigationManager NavigationManager
+<div style="height:5vh">
+    <h1>Report Viewer</h1>
+</div>
+
+<div style="height:5vh">
+    <MudPaper Width="100%">
+        <MudContainer MaxWidth="MaxWidth.Small">
+            <MudPaper Height="100%" Width="100%" Square="true" Class="mud-theme-primary">
+                <h4>Name:</h4>
+                <p>Small Tester Man</p>
+                <h4>Student ID:</h4>
+                <p>689001</p>
+                <h4>Question1: How are you feeling about your course?</h4>
+                <p>could be better but its manigeable</p>
+                <h4>Question2: Do you think you will reach your assignment deadlines?</h4>
+                <p>I will be able to reach at least 2 of them, may need an extension on the 3rd</p>
+                <h4>Question3: Rate your recent mental state</h4>
+                <p>Stable, coping well</p>
+                <h4>Do you have any additional comments? These can be anything from additional context to your answers, problems to information you would like to be known.</h4>
+                <p>Not particularly</p>
+            </MudPaper>
+        </MudContainer>
+        <div class="center">
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/interactionselectorsupervisor")' Class="ml-auto mud-theme-primary py-4 px-6 mx-4 rounded-pill">Select a different Meeting</MudButton>
+        </div>
+    </MudPaper>
+    <div class="center">
+        <MudIconButton Class="rounded-xl" Color="Color.Primary" Size="Size.Large" Icon="@Icons.Material.Filled.Home" @onclick='() => NavigationManager.NavigateTo("/supervisorhome")' />
+    </div>
+</div>
+
+<style>
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 5px;
+        text-align: center;
+    }
+</style>
+
+
+@code {
+
+}

@@ -2,6 +2,15 @@
 @inject NavigationManager NavigationManager
 @using System.ComponentModel.DataAnnotations
 
+<style>
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 5px;
+        text-align: center;
+    }
+</style>
+
 <div style="height:5vh">
 <h1>Report Creation</h1>
 </div>
@@ -46,8 +55,8 @@
                 <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
                 @if (success)
                 {
-                    string[] ReportLines = { "Progress Report", $"Student:{model.Username}", $"Student ID:{model.StudentID}", $"Question1:How are you feeling about your course?:Answer:{model.Question1}", $"Question 2:Do you think you will reach your assignment deadlines? (1-5):Answer:{model.Question2}", $"Question 3:\nRate your recent mental state (1-5):Answer:{model.Question3}", $"Additional Comments:{model.AdditionalComments}" };
-                    @*                     string FilePath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + $"//SavedInteractions/{model.Username} - ProgressReport.txt"; *@
+                   @*  string[] ReportLines = { "Progress Report", $"Student:{model.Username}", $"Student ID:{model.StudentID}", $"Question1:How are you feeling about your course?:Answer:{model.Question1}", $"Question 2:Do you think you will reach your assignment deadlines? (1-5):Answer:{model.Question2}", $"Question 3:\nRate your recent mental state (1-5):Answer:{model.Question3}", $"Additional Comments:{model.AdditionalComments}" };
+                    string FilePath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + $"//SavedInteractions/{model.Username} - ProgressReport.txt";
                     string FilePath = $"D:/C# Projects./IUX-Prototype-2-Implementation/UIUX Prototype 2 Implementation/SavedInteractions/{model.Username} - ProgressReport.txt";
                     string Fullpath = Path.GetFullPath(FilePath);
                     using (StreamWriter sw = new StreamWriter(Fullpath))
@@ -56,7 +65,7 @@
                         {
                             sw.WriteLine(line);
                         }
-                    }
+                    } *@
                     NavigationManager.NavigateTo("/studenthome");
                 }
                 else
@@ -69,6 +78,11 @@
         </MudItem>
     </MudGrid>
 </EditForm>
+
+<div class="center">
+    <MudIconButton Class="rounded-xl" Color="Color.Primary" Size="Size.Large" Icon="@Icons.Material.Filled.Home" @onclick='() => NavigationManager.NavigateTo("/studenthome")' />
+</div>
+
 @code {
     RegisterAccountForm model = new RegisterAccountForm();
     bool success;

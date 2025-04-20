@@ -1,4 +1,4 @@
-﻿@page "/reportviewer"
+﻿@page "/reportviewertutor"
 @inject NavigationManager NavigationManager
 <div style="height:5vh">
 <h1>Report Viewer</h1>
@@ -23,10 +23,14 @@
         </MudPaper>
     </MudContainer>
     <div class="center">
-    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/interactionselector")' Class="ml-auto mud-theme-primary py-4 px-6 mx-4 rounded-pill">Select a different Meeting</MudButton>
+    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/interactionselectortutor")' Class="ml-auto mud-theme-primary py-4 px-6 mx-4 rounded-pill">Select a different Meeting</MudButton>
     </div>
 </MudPaper>
+    <div class="center">
+        <MudIconButton Class="rounded-xl" Color="Color.Primary" Size="Size.Large" Icon="@Icons.Material.Filled.Home" @onclick='() => NavigationManager.NavigateTo("/tutorhome")' />
+    </div>
 </div>
+
 
 <style>
     .center {

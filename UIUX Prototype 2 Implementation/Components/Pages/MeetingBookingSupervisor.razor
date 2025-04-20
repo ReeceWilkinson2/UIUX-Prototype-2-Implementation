@@ -4,6 +4,15 @@
 @using System.ComponentModel.DataAnnotations
 @inject NavigationManager NavigationManager
 
+<style>
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 5px;
+        text-align: center;
+    }
+</style>
+
 <div style="height:5vh">
 <h1>Meeting Booking</h1>
 </div>
@@ -29,9 +38,15 @@
     <MudTimePicker Label="12 hours custom format" AmPm="true" TimeFormat="h:mm tt" @bind-Time="_time" />
 </MudForm>
 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/home")' Class="ml-auto">Create</MudButton>
+
+<div class="center">
+    <MudIconButton Class="rounded-xl" Color="Color.Primary" Size="Size.Large" Icon="@Icons.Material.Filled.Home" @onclick='() => NavigationManager.NavigateTo("/home")' />
+</div>
+
 @code {
     StudentMeetingForm newLink = new StudentMeetingForm();
     // private MudForm form;
+    bool success;
 
     public class StudentMeetingForm
     {
@@ -41,4 +56,10 @@
     }
     private DateTime? _date = DateTime.Today;
     private TimeSpan? _time = new TimeSpan(00, 45, 00);
+
+    private void OnValidSubmit(EditContext context)
+    {
+        success = true;
+        StateHasChanged();
+    }
 }

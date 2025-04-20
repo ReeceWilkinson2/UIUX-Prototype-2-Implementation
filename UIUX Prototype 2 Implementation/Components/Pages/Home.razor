@@ -6,11 +6,14 @@
 
 <div style="height:10vh">
 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/meetingbookingsupervisor")' Class="ml-auto">Book a Meeting</MudButton>
-<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/interactionselector")' Class="ml-auto">View Student Status Report</MudButton>
+<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/interactionselectorsupervisor")' Class="ml-auto">View Student Status Report</MudButton>
 </div>
 
 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/")' Class="ml-auto mud-theme-primary py-4 px-6 mx-4 rounded-pill">Log Off</MudButton>
 
+<div class="center">
+    <MudIconButton Class="rounded-xl" Color="Color.Primary" Size="Size.Large" Icon="@Icons.Material.Filled.Home" @onclick='() => NavigationManager.NavigateTo("/home")' />
+</div>
 
 @code {
 

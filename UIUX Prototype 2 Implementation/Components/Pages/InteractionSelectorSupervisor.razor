@@ -1,0 +1,31 @@
+﻿@page "/interactionselectorsupervisor"
+@inject NavigationManager NavigationManager
+
+<style>
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 5px;
+        text-align: center;
+    }
+</style>
+
+<div style="height:5vh">
+<h1>InteractionViewer</h1>
+</div>
+
+<MudPaper Width="300px" Square="true">
+    <MudButtonGroup Color="Color.Primary" Variant="Variant.Filled" Vertical="true">
+        <MudButton @onclick='() => NavigationManager.NavigateTo("/reportviewersupervisor")'>Report 1</MudButton>
+        <MudButton @onclick='() => NavigationManager.NavigateTo("/meetingviewersupervisor")'>Meeting 1</MudButton>
+        <MudButton @onclick='() => NavigationManager.NavigateTo("/reportviewersupervisor")'>Report 3</MudButton>
+    </MudButtonGroup>
+</MudPaper>
+
+<div class="center">
+    <MudIconButton Class="rounded-xl" Color="Color.Primary" Size="Size.Large" Icon="@Icons.Material.Filled.Home" @onclick='() => NavigationManager.NavigateTo("/home")' />
+</div>
+
+@code {
+
+}

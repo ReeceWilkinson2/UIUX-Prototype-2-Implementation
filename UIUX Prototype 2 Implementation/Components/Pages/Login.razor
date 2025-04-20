@@ -6,18 +6,24 @@
 @using System.ComponentModel.DataAnnotations
 <style>
     .dot {
-        height: 100px;
-        width: 100px;
+        height: 200px;
+        width: 200px;
         background-color: #74C69D;
         border-radius: 50%;
         display: inline-block;
         align-self: center;
     }
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 5px;
+        text-align: center;
+    }
 </style>
 
-<div style="width: 50%">
-<span class="dot"></span>
-<MudIconButton Class="rounded-xl" />
+<div class="center">
+    <span class="dot"></span>
+    <MudIconButton Class="rounded-xl" />
 </div>
 
 <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
@@ -64,6 +70,7 @@
         </MudItem>
     </MudGrid>
 </EditForm>
+
 @code {
     RegisterAccountForm model = new RegisterAccountForm();
     bool success;

@@ -4,6 +4,15 @@
 @using System.ComponentModel.DataAnnotations
 @inject NavigationManager NavigationManager
 
+<style>
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 5px;
+        text-align: center;
+    }
+</style>
+
 <div style="height:5vh">
 <h1>Meeting Booking</h1>
 </div>
@@ -45,6 +54,9 @@
 </MudForm>
 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/studenthome")' Class="ml-auto">Create</MudButton>
 
+<div class="center">
+    <MudIconButton Class="rounded-xl" Color="Color.Primary" Size="Size.Large" Icon="@Icons.Material.Filled.Home" @onclick='() => NavigationManager.NavigateTo("/studenthome")' />
+</div>
 
 @code {
     StudentMeetingForm newLink = new StudentMeetingForm();
