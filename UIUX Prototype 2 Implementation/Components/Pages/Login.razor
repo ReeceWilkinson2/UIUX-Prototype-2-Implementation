@@ -45,17 +45,17 @@
         <MudItem xs="12" sm="5">
             <MudPaper Class="pa-4 mud-height-full">
                 <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
-                @if (success && model.Username == "supervisor")
+                @if (success && model.Username == "supervisor" && model.Password == "supervisorpass")
                 {
                     NavigationManager.NavigateTo("/home");
 
                 }
-                else if (success && model.Username == "student")
+                else if (success && model.Username == "student" && model.Password == "studentpass")
                 {
                     NavigationManager.NavigateTo("/studenthome");
 
                 }
-                else if (success && model.Username == "tutor")
+                else if (success && model.Username == "tutor" && model.Password == "tutorpass")
                 {
                     NavigationManager.NavigateTo("/tutorhome");
 
