@@ -4,7 +4,7 @@
 <style>
     .center {
         margin: auto;
-        width: 50%;
+        width: 100%;
         padding: 5px;
         text-align: center;
     }
@@ -14,13 +14,15 @@
     <h1>InteractionViewer</h1>
 </div>
 
-<MudPaper Width="300px" Square="true">
+<div class="center">
+<MudPaper Width="100%" Square="true">
     <MudButtonGroup Color="Color.Primary" Variant="Variant.Filled" Vertical="true">
         <MudButton @onclick='() => NavigationManager.NavigateTo("/reportviewertutor")'>Report 1</MudButton>
         <MudButton @onclick='() => NavigationManager.NavigateTo("/meetingviewertutor")'>Meeting 1</MudButton>
         <MudButton @onclick='() => NavigationManager.NavigateTo("/reportviewertutor")'>Report 3</MudButton>
     </MudButtonGroup>
 </MudPaper>
+</div>
 
 <div class="center">
     <MudIconButton Class="rounded-xl" Color="Color.Primary" Size="Size.Large" Icon="@Icons.Material.Filled.Home" @onclick='() => NavigationManager.NavigateTo("/tutorhome")' />

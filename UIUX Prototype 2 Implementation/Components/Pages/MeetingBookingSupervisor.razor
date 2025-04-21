@@ -34,10 +34,13 @@
     </MudSelect>
     <h2>Select a date</h2>
     <MudDatePicker Label="MM/dd/yyyy" Editable="true" @bind-Date="_date" Mask="@(new DateMask("MM/dd/yyyy"))" DateFormat="MM/dd/yyyy" Placeholder="en-UK Date" Variant="Variant.Filled" />
-    <h2>Select a time</h2>
+    <h2>Select a start time</h2>
+    <MudTimePicker Label="12 hours custom format" AmPm="true" TimeFormat="h:mm tt" @bind-Time="_time" />
+    <h2>Select an end time</h2>
     <MudTimePicker Label="12 hours custom format" AmPm="true" TimeFormat="h:mm tt" @bind-Time="_time" />
 </MudForm>
 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" @onclick='() => NavigationManager.NavigateTo("/home")' Class="ml-auto">Create</MudButton>
+
 
 <div class="center">
     <MudIconButton Class="rounded-xl" Color="Color.Primary" Size="Size.Large" Icon="@Icons.Material.Filled.Home" @onclick='() => NavigationManager.NavigateTo("/home")' />
